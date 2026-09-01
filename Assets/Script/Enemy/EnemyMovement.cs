@@ -1,14 +1,22 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
+/// <summary>
+/// ì ì´ ì „ë‹¬ë°›ì€ ì›¨ì´í¬ì¸íŠ¸ë¥¼ ìˆœì„œëŒ€ë¡œ ë”°ë¼ ì´ë™í•˜ë„ë¡ ê´€ë¦¬
+/// ë§ˆì§€ë§‰ ì§€ì ì— ë„ì°©í•˜ë©´ ê´‘ë¶€ì—ê²Œ í”¼í•´ë¥¼ ì£¼ê³  ì ì„ ì›¨ì´ë¸Œì—ì„œ ì œê±°
+/// </summary>
 public class EnemyMovement : MonoBehaviour
 {
-    public float Speed = 1f; //¼Óµµ
+    public float Speed = 1f; //ì†ë„
     public float currentSpeed;
-    public Transform[] wayPoint; //¸ñÇ¥ÁöÁ¡ ¹è¿­·Î »ı¼º
+    public Transform[] wayPoint; //ëª©í‘œì§€ì  ë°°ì—´ë¡œ ìƒì„±
 
-    private int index = 0; //ÁöÁ¡ ¹øÈ£
+    private int index = 0; //ì§€ì  ë²ˆí˜¸
     public float dmg = 25;
 
+    /// <summary>
+    /// ì ì´ í™œì„±í™” ëœ ë’¤ í˜„ì¬ ì›¨ì´ë¸Œì˜ ì†ë„ ë°°ìœ¨ì„ ê¸°ë³¸ ì´ë™ ì†ë„ì— ì ìš©
+    /// WaveManagerê°€ ì—†ëŠ” í…ŒìŠ¤íŠ¸ í™˜ê²½ì—ì„œëŠ” ê¸°ë³¸ ì†ë„ë¥¼ ê·¸ëŒ€ë¡œ ì‚¬ìš©
+    /// </summary>
     private void Start()
     {
         if (WaveManager.instance != null)
@@ -21,32 +29,45 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ë§¤ í”„ë ˆì„ í˜„ì¬ ì›¨ì´í¬ì¸íŠ¸ ë°©í–¥ìœ¼ë¡œ ì´ë™
+    /// ë„ì°©í•˜ë©´ ë‹¤ìŒ ì§€ì ìœ¼ë¡œ ì „í™˜
+    /// ë§ˆì§€ë§‰ ì›¨ì´í¬ì¸íŠ¸ê¹Œì§€ í†µê³¼í•˜ë©´ ëª©ì ì§€ ë„ì°© ì²˜ë¦¬ë¥¼ ì‹¤í–‰
+    /// </summary>
     void Update()
     {
-        if (wayPoint.Length == 0) return; //¿şÀÌÆ÷ÀÎÆ®°¡ ¾øÀ»¶§¸¦ ´ëºñÇÏ±âÀ§ÇÑ ¿¹¿ÜÃ³¸®
+        if (wayPoint.Length == 0) return; //ì›¨ì´í¬ì¸íŠ¸ê°€ ì—†ì„ë•Œë¥¼ ëŒ€ë¹„í•˜ê¸°ìœ„í•œ ì˜ˆì™¸ì²˜ë¦¬
 
-        Transform target = wayPoint[index]; //ÇöÀç ¸ñÇ¥ À§Ä¡ ÀúÀå
+        Transform target = wayPoint[index]; //í˜„ì¬ ëª©í‘œ ìœ„ì¹˜ ì €ì¥
 
-        Vector3 dir = (target.position - transform.position).normalized; //ÇöÀç À§Ä¡¿¡¼­ ¸ñÇ¥ ÁöÁ¡À¸·Î ÇâÇÏ´Â ¹æÇâº¤ÅÍ¸¦ Á¤±ÔÈ­ÇØ¼­ ÀúÀå
-        transform.position += dir * currentSpeed * Time.deltaTime; //¿şÀÌÆ÷ÀÎÅÍ±îÁö ÀÌµ¿
+        Vector3 dir = (target.position - transform.position).normalized; //í˜„ì¬ ìœ„ì¹˜ì—ì„œ ëª©í‘œ ì§€ì ìœ¼ë¡œ í–¥í•˜ëŠ” ë°©í–¥ë²¡í„°ë¥¼ ì •ê·œí™”í•´ì„œ ì €ì¥
+        transform.position += dir * currentSpeed * Time.deltaTime; //ì›¨ì´í¬ì¸í„°ê¹Œì§€ ì´ë™
 
-        if (Vector3.Distance(transform.position, target.position) < 0.1f) //ÇöÀç µÑÀÇ °Å¸®°¡ 0.1º¸´Ù ÀÛ´Ù¸é
+        if (Vector3.Distance(transform.position, target.position) < 0.1f) //í˜„ì¬ ë‘˜ì˜ ê±°ë¦¬ê°€ 0.1ë³´ë‹¤ ì‘ë‹¤ë©´
         {
-            index++; //ÀÎµ¦½º¸¦ Áõ°¡½ÃÄÑ ´ÙÀ½ÁöÁ¡À¸·Î ¿şÀÌÆ÷ÀÎÆ® º¯°æ
+            index++; //ì¸ë±ìŠ¤ë¥¼ ì¦ê°€ì‹œì¼œ ë‹¤ìŒì§€ì ìœ¼ë¡œ ì›¨ì´í¬ì¸íŠ¸ ë³€ê²½
 
-            if (index >= wayPoint.Length) //¸¸¾à ¿şÀÌÆ÷ÀÎÆ®°¡ ¸¶Áö¸·ÀÌ¶ó¸é µµÂøÆÇÁ¤
+            //ë§Œì•½ ì›¨ì´í¬ì¸íŠ¸ê°€ ë§ˆì§€ë§‰ì´ë¼ë©´ ë„ì°©íŒì •
+            if (index >= wayPoint.Length) 
             {
                 ReachGoal();
             }
         }
     }
 
+    /// <summary>
+    /// ì´ ì ì´ ì´ë™í•  ì›¨ì´í¬ì¸íŠ¸ ë°°ì—´ì„ ì €ì¥
+    /// EnemySpawnerê°€ ì  í”„ë¦¬íŒ¹ì„ ìƒì„±í•œ ì§í›„ í˜¸ì¶œ
+    /// </summary>
     public void SetWayPoints(Transform[] points)
     {
         wayPoint = points;
     }
 
-    void ReachGoal() //µµÂøÇØ¼­ ±¤ºÎÃ¼·ÂÀ» ±ğ°í ÇöÀç ¸ó½ºÅÍ¸¦ Á¦°ÅÇÏ±â À§ÇÑ ÇÔ¼ö
+    /// <summary>
+    /// ì ì´ ë§ˆì§€ë§‰ ì›¨ì´í¬ì¸íŠ¸ì— ë„ì°©í–ˆì„ ë•Œ ê´‘ë¶€ì—ê²Œ í”¼í•´ë¥¼ ì ìš©í•˜ê³  ì ì„ ì œê±°í•˜ëŠ” í•¨ìˆ˜
+    /// </summary>
+    void ReachGoal()
     {
         Miner miner = FindObjectOfType<Miner>();
 
