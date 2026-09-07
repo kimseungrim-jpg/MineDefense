@@ -1,26 +1,39 @@
 using UnityEngine;
 
+/// <summary>
+/// ê²Œì„ ì¢…ë£Œ ìƒíƒœë¥¼ ê´€ë¦¬í•˜ê³  ê²Œì„ ì˜¤ë²„ UI í‘œì‹œì™€ ì „ì²´ ì‹œê°„ ì •ì§€ë¥¼ ìš”ì²­
+/// ê´‘ë¶€ì˜ ì²´ë ¥ì´ ëª¨ë‘ ì†Œì§„ë˜ì—ˆì„ ë•Œ ê²Œì„ ì¢…ë£Œ íë¦„ì˜ ì§„ì…ì ìœ¼ë¡œ ì‚¬ìš©
+/// </summary>
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance; //Àü¿ª Á¢±Ù¿ë ÀÎ½ºÅÏ½º ½Ì±ÛÅæ
+    public static GameManager instance;
 
-    private bool isGameOver = false; //°ÔÀÓÀÌ ³¡³µ´ÂÁö ÆÇº°ÇÏ´Â º¯¼ö
+    private bool isGameOver = false;
 
+    /// <summary>
+    /// GameManagerë¥¼ ì „ì—­ ì ‘ê·¼ ì¸ìŠ¤í„´ìŠ¤ë¡œ ë“±ë¡
+    /// ì´ë¯¸ ë‹¤ë¥¸ ì¸ìŠ¤í„´ìŠ¤ê°€ ìˆë‹¤ë©´ ê²Œì„ ì¢…ë£Œ ìƒíƒœê°€ ì¤‘ë³µ ê´€ë¦¬ë˜ì§€ ì•Šë„ë¡ í˜„ì¬ ì˜¤ë¸Œì íŠ¸ë¥¼ ì œê±°
+    /// </summary>
     private void Awake()
     {
-        if (instance == null) //¾ÆÁ÷ GameManager°¡ ¾ø´Ù¸é ÀÌ °´Ã¼¸¦ ´ëÇ¥ ÀÎ½ºÅÏ½º·Î ¼³Á¤
+        if (instance == null)
             instance = this;
         else
-            Destroy(gameObject); //ÀÌ¹Ì ÀÖ´Ù¸é Áßº¹ »ı¼ºÀÌ¹Ç·Î Á¦°Å
+            Destroy(gameObject);
     }
 
+    /// <summary>
+    /// ê²Œì„ì„ í•œ ë²ˆë§Œ ì¢…ë£Œ ìƒíƒœë¡œ ì „í™˜í•˜ê³  ê²Œì„ ì˜¤ë²„ UIë¥¼ í‘œì‹œí•œ ë’¤ ê²Œì„ ì‹œê°„ì„ ì •ì§€
+    /// ì ì´ ëª©ì ì§€ì— ë„ë‹¬í•´ ê´‘ë¶€ì˜ ì²´ë ¥ì´ ëª¨ë‘ ì†Œì§„ë˜ì—ˆì„ ë•Œ Minerì—ì„œ í˜¸ì¶œ
+    /// </summary>
     public void GameOver()
     {
-        if (isGameOver) return; //ÀÌ¹Ì °ÔÀÓ¿À¹öÀÏ½Ã ¿¹¿ÜÃ³¸®
+        // í•œë²ˆì— ì—¬ëŸ¬ í”¼í•´ê°€ ë“¤ì–´ì™€ë„ ê²Œì„ ì˜¤ë²„ ì²˜ë¦¬ê°€ ì¤‘ë³µ ì‹¤í–‰ë˜ì§€ ì•Šë„ë¡ ì°¨ë‹¨ ì˜ˆì™¸ì²˜ë¦¬
+        if (isGameOver) return;
 
-        isGameOver = true; //ÇöÀç»óÅÂ¸¦ °ÔÀÓ¿À¹ö·Î º¯°æ
+        isGameOver = true;
         UiManager.instance.ShowGameOver();
 
-        Time.timeScale = 0; //°ÔÀÓ Á¤Áö
+        Time.timeScale = 0;
     }
 }

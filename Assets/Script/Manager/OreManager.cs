@@ -1,22 +1,29 @@
 using UnityEngine;
 
+/// <summary>
+/// í”Œë ˆì´ì–´ê°€ ë³´ìœ í•œ ê´‘ì„ì„ ê´€ë¦¬í•˜ê³  ë‹¤ë¥¸ ì‹œìŠ¤í…œì— ê³µí†µ ê´‘ì„ ì €ì¥ì†Œë¥¼ ì œê³µ
+/// ê´‘ë¶€ê°€ ìƒì‚°í•œ ê´‘ì„ì„ ëˆ„ì í•˜ë©° íƒ€ì›Œ ê°•í™” ë¹„ìš©ì€ ì´ ê°’ì„ ê¸°ì¤€ìœ¼ë¡œ ì²˜ë¦¬
+/// </summary>
 public class OreManager : MonoBehaviour
 {
-    public static OreManager instance; //Àü¿ª Á¢±Ù¿ë ÀÎ½ºÅÏ½º ½Ì±ÛÅæ
+    public static OreManager instance;
 
-    public int ore = 0; //ÇÃ·¹ÀÌ¾î º¸À¯ ±¤¼®
+    public int ore = 0;
 
     private void Awake()
     {
-        if (instance == null) //¾ÆÁ÷ OreManager°¡ ¾ø´Ù¸é ÀÌ °´Ã¼¸¦ ´ëÇ¥ ÀÎ½ºÅÏ½º·Î ¼³Á¤
+        if (instance == null)
             instance = this;
         else
-            Destroy(gameObject); //ÀÌ¹Ì ÀÖ´Ù¸é Áßº¹ »ı¼ºÀÌ¹Ç·Î Á¦°Å
+            Destroy(gameObject);
     }
 
-    public void AddOre(int amount) // ±¤¼®Ãß°¡ ÇÔ¼ö
+    /// <summary>
+    /// ì „ë‹¬ë°›ì€ ìˆ˜ëŸ‰ì„ í˜„ì¬ ë³´ìœ  ê´‘ì„ì— ì¶”ê°€
+    /// ì›¨ì´ë¸Œ ì§„í–‰ ì¤‘ ê´‘ë¶€ì˜ ìƒì‚° ì£¼ê¸°ê°€ ì™„ë£Œë˜ì—ˆì„ ë•Œ Minerì—ì„œ í˜¸ì¶œ
+    /// </summary>
+    public void AddOre(int amount) 
     {
-        ore += amount; //¹Ş¾Æ¿Â °ªÀ» ±¤¼®¿¡ Ãß°¡
-        //Debug.Log("Ore: " + ore); //Á¤»óÀûÀ¸·Î ¿À¸£´ÂÁö Ã¼Å©ÇÏ±â À§ÇÑ µğ¹ö±×·Î±×
+        ore += amount;
     }
 }

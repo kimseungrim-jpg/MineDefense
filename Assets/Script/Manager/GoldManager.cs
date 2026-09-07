@@ -2,21 +2,24 @@ using UnityEngine;
 
 public class GoldManager : MonoBehaviour
 {
-    public static GoldManager instance; //Àü¿ª Á¢±Ù¿ë ÀÎ½ºÅÏ½º ½Ì±ÛÅæ
+    public static GoldManager instance;
 
-    public int gold = 0; //ÇÃ·¹ÀÌ¾î º¸À¯ °ñµå
+    public int gold = 0;
 
     private void Awake()
     {
-        if (instance == null) //¾ÆÁ÷ goldmanager°¡ ¾ø´Ù¸é ÀÌ °´Ã¼¸¦ ´ëÇ¥ ÀÎ½ºÅÏ½º·Î ¼³Á¤
+        if (instance == null)
             instance = this;
         else
-            Destroy(gameObject); //ÀÌ¹Ì ÀÖ´Ù¸é Áßº¹ »ı¼ºÀÌ¹Ç·Î Á¦°Å
+            Destroy(gameObject);
     }
 
-    public void AddGold(int amount) // °ñµåÃß°¡ ÇÔ¼ö
+    /// <summary>
+    /// ì „ë‹¬ë°›ì€ ìˆ˜ëŸ‰ì„ í˜„ì¬ ë³´ìœ  ê³¨ë“œì— ì¶”ê°€
+    /// ì ì´ ì²˜ì¹˜ë˜ì–´ ë³´ìƒì„ ì§€ê¸‰í•  ë•Œ Enemyì—ì„œ í˜¸ì¶œ
+    /// </summary>
+    public void AddGold(int amount)
     {
-        gold += amount; //¹Ş¾Æ¿Â °ªÀ» °ñµå¿¡ Ãß°¡
-        //Debug.Log("Gold: " + gold); //Á¤»óÀûÀ¸·Î ¿À¸£´ÂÁö Ã¼Å©ÇÏ±â À§ÇÑ µğ¹ö±×·Î±×
+        gold += amount;
     }
 }
