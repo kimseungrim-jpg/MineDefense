@@ -30,6 +30,8 @@ public class LoadScene : MonoBehaviour
     /// </summary>
     public void QuitGame()
     {
+        Debug.Log("[LoadScene]: 종료 버튼 클릭");
+
         Application.Quit();
     }
 }
