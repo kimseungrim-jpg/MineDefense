@@ -20,5 +20,10 @@ public class MagicianAtkAni : MonoBehaviour
     public void Attack()
     {
         magic.Dealing();
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySfx(AudioManager.SfxType.MagicianAttack);
+        }
     }
 }

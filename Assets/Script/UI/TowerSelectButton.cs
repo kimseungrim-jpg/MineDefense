@@ -26,6 +26,11 @@ public class TowerSelectButton : MonoBehaviour
     public void SelectTower()
     {
         BuildManager.instance.SelectTower(towerPrefab);
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySfx(AudioManager.SfxType.ButtonClick);
+        }
     }
 
     /// <summary>

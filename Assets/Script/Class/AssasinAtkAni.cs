@@ -20,6 +20,11 @@ public class AssasinAtkAni : MonoBehaviour
     public void Attack()
     {
         assasin.Dealing();
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySfx(AudioManager.SfxType.AssasinAttack);
+        }
     }
 
 }

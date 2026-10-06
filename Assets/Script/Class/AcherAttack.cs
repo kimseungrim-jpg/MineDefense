@@ -41,6 +41,7 @@ public class AcherAttack : MonoBehaviour, IAttack
     {
         enemy = target;
         aLevel = level;
+
         animator.SetTrigger("isAttack");
     }
 

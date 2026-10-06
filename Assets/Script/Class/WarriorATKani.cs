@@ -20,5 +20,10 @@ public class WarriorATKani : MonoBehaviour
     public void Attack()
     {
         attack.Dealing();
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySfx(AudioManager.SfxType.WarriorAttack);
+        }
     }
 }

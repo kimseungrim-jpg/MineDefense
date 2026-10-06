@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 /// <summary>
 /// 타워의 공격 주기, 공격 대상 탐색, 강화 및 선택 UI 연결을 담당
@@ -99,6 +99,11 @@ public class Tower : MonoBehaviour
         upgradeCost += 3;
 
         EffectManager.instance.PlayerLevelupEffect(transform.position);
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySfx(AudioManager.SfxType.LevelUp);
+        }
 
         Debug.Log($"타워 레벨{level}");
     }

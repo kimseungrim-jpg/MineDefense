@@ -899,10 +899,10 @@ MonoBehaviour:
   gameBgm: {fileID: 8300000, guid: 14a6dfeda36a7354e9bdfe2ed711cb92, type: 3}
   buttonClick: {fileID: 8300000, guid: 41ff707a480a90a42baf472aa3f035e3, type: 3}
   levelup: {fileID: 8300000, guid: 70f835aa8008d8942ba95f593c673d40, type: 3}
-  warriorAttack: {fileID: 8300000, guid: 1762d04235176ac4aa0bf9d86a2b3dd5, type: 3}
+  warriorAttack: {fileID: 8300000, guid: 3f1d2530b409dc54cad554ecd6e929da, type: 3}
   archerAttack: {fileID: 8300000, guid: 3353e036a5b70d24293f15d164dc7e32, type: 3}
   mageAttack: {fileID: 8300000, guid: 918516a717a334e4daf947f1feac71d8, type: 3}
-  assasinAttack: {fileID: 8300000, guid: b7ea9543fba885d4ebdff8614f94c306, type: 3}
+  assasinAttack: {fileID: 8300000, guid: f35608d4bde1b154d93193555f26d733, type: 3}
   enemyDeath: {fileID: 8300000, guid: 86d62ce65177f1e4da502730dac11228, type: 3}
   enemyHit: {fileID: 8300000, guid: c3a3d0edfef9a004684d59c8b22c93e3, type: 3}
   minerHit: {fileID: 8300000, guid: 6a597203bb4862d4c9fc5a46aa236f56, type: 3}

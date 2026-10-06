@@ -24,5 +24,10 @@ public class AcherATKAni : MonoBehaviour
     public void Attack()
     {
         achAtkAni.Dealing();
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySfx(AudioManager.SfxType.ArcherAttack);
+        }
     }
 }

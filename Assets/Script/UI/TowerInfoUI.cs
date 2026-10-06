@@ -39,6 +39,11 @@ public class TowerInfoUI : MonoBehaviour
 
         modalBackground.SetActive(true);
         infoPanel.SetActive(true);
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySfx(AudioManager.SfxType.ButtonClick);
+        }
     }
 
     /// <summary>
@@ -77,6 +82,11 @@ public class TowerInfoUI : MonoBehaviour
             targetSlot.RemoveTower();
 
             Hide();
+        }
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySfx(AudioManager.SfxType.ButtonClick);
         }
     }
 

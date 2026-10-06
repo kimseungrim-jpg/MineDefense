@@ -19,7 +19,7 @@ public class Miner : MonoBehaviour
     {
         currentHp = maxHp;
 
-        StartCoroutine(ProduceOre()); //ÄÚ·çÆ¾ ½ÃÀÛ
+        StartCoroutine(ProduceOre()); //ì½”ë£¨í‹´ ì‹œì‘
     }
 
     public void MineTakeDamage(float dmg)
@@ -59,7 +59,7 @@ public class Miner : MonoBehaviour
                     upgradeCost = 50;
                 }
 
-                EffectManager.instance.PlayerLevelupEffect(transform.position);
+                EffectManager.instance.PlayerLevelupEffect(transform.position); 
             }
             else
             {
@@ -70,12 +70,14 @@ public class Miner : MonoBehaviour
                 EffectManager.instance.PlayerHpUpEffect(transform.position);
             }
 
-            //¼±ÅÃ¿Ï·áÈÄ ui Á¦°Å ·ÎÁ÷ ÀÚ¸®
-            //MinerUpgradeUI.Instance.Hide();
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlaySfx(AudioManager.SfxType.LevelUp);
+            }
         }
         else
         {
-            Debug.Log("°ñµå°¡ ºÎÁ·ÇÕ´Ï´Ù.");
+            Debug.Log("ê³¨ë“œê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.");
         }
     }
 
@@ -85,7 +87,7 @@ public class Miner : MonoBehaviour
 
         TowerInfoUI.instance?.Hide();
 
-        //¼±ÅÃ½Ã ui Ç¥½Ã ·ÎÁ÷
+        //ì„ íƒì‹œ ui í‘œì‹œ ë¡œì§
         MinerUpgradeUI.Instance.Show(this);
     }
 
@@ -109,10 +111,10 @@ public class Miner : MonoBehaviour
 
     void Die()
     {
-        //°ÔÀÓ ¸Å´ÏÀú È£Ãâ
+        //ê²Œì„ ë§¤ë‹ˆì € í˜¸ì¶œ
         GameManager.instance.GameOver();
 
-        StopAllCoroutines(); //ÄÚ·çÆ¾ Á¤Áö
+        StopAllCoroutines(); //ì½”ë£¨í‹´ ì •ì§€
     }
 
 }

@@ -785,7 +785,6 @@ MonoBehaviour:
   - {fileID: 1792185915}
   - {fileID: 1504464232}
   - {fileID: 1140893610}
-  RemoveBtn: {fileID: 0}
 --- !u!4 &397657133
 Transform:
   m_ObjectHideFlags: 0

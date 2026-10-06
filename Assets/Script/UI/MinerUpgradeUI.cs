@@ -54,9 +54,12 @@ public class MinerUpgradeUI : MonoBehaviour
         targetMiner = miner;
         uiPanel.SetActive(true);
 
-
         uiPanel.transform.position = Camera.main.WorldToScreenPoint(miner.transform.position + Vector3.up);
 
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySfx(AudioManager.SfxType.ButtonClick);
+        }
     }
 
     /// <summary>

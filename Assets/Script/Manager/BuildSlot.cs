@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 /// <summary>
@@ -54,7 +54,12 @@ public class BuildSlot : MonoBehaviour
             GoldManager.instance.gold -= cost;
 
             currentTower = Instantiate(BuildManager.instance.SelectedTowerPrefab, transform.position, Quaternion.identity, transform);
-            
+
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlaySfx(AudioManager.SfxType.ButtonClick);
+            }
+
             //같은 타워를 더이상 건설할 비용이 없다면 건설 모드를 종료
             if (GoldManager.instance.gold < cost)
             {

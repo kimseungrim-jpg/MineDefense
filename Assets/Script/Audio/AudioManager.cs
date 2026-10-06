@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour
         WarriorAttack,
         ArcherAttack,
         AssasinAttack,
-        MageAttack,
+        MagicianAttack,
         EnemyDeath,
         EnemyHit,
         MinerHit
@@ -47,7 +47,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip enemyHit;
     [SerializeField] private AudioClip minerHit;
 
-    private const string BgmParameter = "BgmVolume";
+    private const string BgmParameter = "BGMVolume";
     private const string SfxParameter = "SFXVolume";
     private const string BgmSaveKey = "Audio.BGMVolume";
     private const string SfxSaveKey = "Audio.SFXVolume";
@@ -148,21 +148,24 @@ public class AudioManager : MonoBehaviour
             SfxType.WarriorAttack => warriorAttack,
             SfxType.ArcherAttack => archerAttack,
             SfxType.AssasinAttack => assasinAttack,
-            SfxType.MageAttack => mageAttack,
+            SfxType.MagicianAttack => mageAttack,
             SfxType.EnemyDeath => enemyDeath,
             SfxType.EnemyHit => enemyHit,
             SfxType.MinerHit => minerHit,
             _ => null
         };
 
-        if (clip != null)
-            sfxSource.PlayOneShot(clip);
+        if (clip == null)
+            return;
+
+        float volumeScale = type == SfxType.AssasinAttack ? 0.4f : 1f;
+        sfxSource.PlayOneShot(clip, volumeScale);
     }
 
     /// <summary>
     /// 전달받은 0~1 값으로 BGM 볼륨을 변경하고 저장할 값을 갱신
     /// </summary>
-    public void SetBfmVolume(float value)
+    public void SetBgmVolume(float value)
     {
         BgmVolume = Mathf.Clamp01(value);
         PlayerPrefs.SetFloat(BgmSaveKey, BgmVolume);

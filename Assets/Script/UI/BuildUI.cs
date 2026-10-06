@@ -17,6 +17,11 @@ public class BuildUI : MonoBehaviour
     {
         mainOpenButton.SetActive(false);
         towerButtonPanel.SetActive(true);
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySfx(AudioManager.SfxType.ButtonClick);
+        }
     }
 
     /// <summary>

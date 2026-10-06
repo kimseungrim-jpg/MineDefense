@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 /// <summary>
@@ -13,7 +13,18 @@ public class ClickOutSide : MonoBehaviour
     /// </summary>
     private void OnMouseDown()
     {
-        if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) 
+            return;
+
+        BuildUI buildUI = FindAnyObjectByType<BuildUI>();
+        MinerUpgradeUI minerUI = MinerUpgradeUI.Instance;
+        TowerInfoUI towerUI = TowerInfoUI.instance;
+
+        bool wasAnyUIOpen =
+            (minerUI != null && minerUI.uiPanel != null && minerUI.uiPanel.activeInHierarchy) ||
+            (towerUI != null && towerUI.infoPanel != null && towerUI.infoPanel.activeInHierarchy) ||
+            (towerUI != null && towerUI.modalBackground != null && towerUI.modalBackground.activeInHierarchy) ||
+            (buildUI != null && buildUI.towerButtonPanel != null && buildUI.towerButtonPanel.activeInHierarchy);
 
         if (TowerSelectManager.instance != null)
         {
@@ -21,19 +32,30 @@ public class ClickOutSide : MonoBehaviour
 
         }
 
-        if (MinerUpgradeUI.Instance != null)
+        if (minerUI != null)
         {
             MinerUpgradeUI.Instance.Hide();
         }
 
-        FindAnyObjectByType<BuildUI>()?.CloseBuildMenu();
+        if (buildUI != null)
+        {
+            buildUI.CloseBuildMenu();
+        }
 
-        TowerInfoUI.instance?.Hide();
+        if (towerUI != null)
+        {
+            towerUI.Hide();
+        }
 
         if (BuildManager.instance != null)
         {
             BuildManager.instance.ClearSelection();
             BuildManager.instance.RefreshAllBuildButtons();
+        }
+
+        if (wasAnyUIOpen && AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySfx(AudioManager.SfxType.ButtonClick);
         }
     }
 }
