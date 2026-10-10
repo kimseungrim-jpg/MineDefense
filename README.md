@@ -16,6 +16,7 @@
 ## 기술 스택
 
 | 분류 | 사용 기술 |
+|---|---|
 | Engine | Unity 6 |
 | Language | C# |
 | IDE | Visual Studio 2022 |
