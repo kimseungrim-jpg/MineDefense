@@ -22,10 +22,31 @@
 | IDE | Visual Studio 2022 |
 | Version Contorol | Git, GitHub |
 
+## 플레이 영상
+[![MineDefense 플레이 영상](Docs/Images/title.png)](https://drive.google.com/file/d/19o0YYB1yK57ETNi1X-0pvf-oyhrYSpST/view)
+▶ 이미지를 클릭하면 플레이 영상으로 이동합니다.
+
 ## 플레이 화면
 
 ### 타이틀
 ![타이틀 화면](Docs/Images/title.png)
+
+### 인게임 전투
+서로 다른 공격 방식을 가진 타워를 배치하여 몬스터로 부터 광부를 보호합니다.
+
+![인게임 전투](Docs/Images/gameplay.png)
+
+### 타워 정보 및 강화
+타워의 능력치와 강화 비용을 확인하고, 광석을 소비하여 강화할 수 있습니다.
+
+| 강화 전 | 강화 후 |
+|---|---|
+| ![강화 전](Docs/Images/tower-before.png) | ![강화 후](Docs/Images/tower-after.png) |
+
+### 음량 설정
+배경음악과 효과음의 음량을 각각 조절할 수 있습니다.
+
+![음량 설정](Docs/Images/audio-setting.png)
 
 ## 주요 기능
 
