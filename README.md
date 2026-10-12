@@ -22,6 +22,11 @@
 | IDE | Visual Studio 2022 |
 | Version Contorol | Git, GitHub |
 
+## 플레이 화면
+
+### 타이틀
+![타이틀 화면](Docs/Images/title.png)
+
 ## 주요 기능
 
 ### 타워 건설 및 강화
