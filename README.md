@@ -46,7 +46,7 @@
 ### 음량 설정
 배경음악과 효과음의 음량을 각각 조절할 수 있습니다.
 
-![음량 설정](Docs/Images/audio-setting.png)
+![음량 설정](Docs/Images/audio-settings.png)
 
 ## 주요 기능
 
