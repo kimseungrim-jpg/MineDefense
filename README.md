@@ -96,3 +96,19 @@
 | 음량 슬라이더 조작 | 배경음악과 효과음의 음량 조절 |
 
 ※ 게임 오버 화면과 타이틀 화면에서는 ESC로 메뉴가 열리지 않습니다.
+
+## 프로젝트 구조
+게임 로직은 'Assets/Script' 에서 아래에 기능별로 나누어 관리합니다.
+
+| 경로 | 구성 |
+|---|---|
+| `Assets/Script/Audio` | 배경음악, 효과음 재생 / 음량 설정 및 저장 |
+| `Assets/Script/Build` | 타워 건설 슬롯 생성 |
+| `Assets/Script/Class` | 공격 인터페이스, 타워별 공격, 투사체 및 공격 애니메이션 이벤트 |
+| `Assets/Script/Enemy` | 적 생성, 이동, 피해 및 사망 처리 |
+| `Assets/Script/Manager` | 게임 종료, 웨이브, 자원, 건설 및 타워 선택 관리 |
+| `Assets/Script/Miner` | 광부의 체력, 광석 생산 및 강화 |
+| `Assets/Script/Tower` | 타워의 대상 탐색, 공격, 강화 / 빈 공간 클릭 처리 |
+| `Assets/Script/UI` | 건설, 정보 UI / 일시정지 메뉴 및 씬 이동 |
+| `Docs/Images` | README에 사용하는 게임 스크린샷 |
+
