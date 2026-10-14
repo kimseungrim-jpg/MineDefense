@@ -112,3 +112,49 @@
 | `Assets/Script/UI` | 건설, 정보 UI / 일시정지 메뉴 및 씬 이동 |
 | `Docs/Images` | README에 사용하는 게임 스크린샷 |
 
+## 주요 스크립트 역할
+
+### 타워 건설 및 전투
+
+| 스크립트 | 역할 |
+|---|---|
+| `BuildSlotGenerator.cs` | 타워를 배치할 건설 슬롯 생성 |
+| `BuildManager.cs` | 건설 모드와 건설할 타워 선택 관리 |
+| `BuildSlot.cs` | 슬롯의 타워 배치 상태 관리, 건설 비용 차감 및 타워 생성/선택/제거 |
+| `Tower.cs` | 공격 대상 탐색, 공격 주기에 따른 공격 실행 요청 및 타워 강화 |
+| `IAttack.cs` | 타워별 공격 실행과 공격력 계산을 위한 공통 함수 정의 |
+| `WarriorAttack.cs` | 전사의 근접 범위 공격 |
+| `AcherAttack.cs` | 궁수의 단일 대상 공격을 위한 화살 생성 |
+| `AssasinAttack.cs` | 도적의 근접 단일 대상 공격 |
+| `MagicainAttack.cs` | 마법사의 범위 공격을 위한 마법 투사체 생성 |
+| `ShotAttack.cs` | 화살의 대상 추적 및 충돌한 적에게 피해 적용 |
+| `ShotRange.cs` | 마법 투사체의 대상 추적 및 충돌 지점 주변의 적에게 범위 피해 적용|
+
+### 게임 진행 및 자원
+
+| 스크립트 | 역할 |
+|---|---|
+| `WaveManager.cs` | 웨이브 시작/종료, 수동/자동 진행 및 웨이브별 적의 수, 적 생성 간격, 적 능력치 증가 관리 |
+| `EnemySpawner.cs` | 웨이브 설정에 따른 적 생성|
+| `EnemyMovement.cs` | 적의 이동 처리 |
+| `Enemy.cs` | 적의 체력 관리, 피해/사망 처리 및 처치 보상 지급 |
+| `Miner.cs` | 광석 생산, 광부의 체력 관리 및 강화/회복/사망 처리 |
+| `GoldManager.cs` | 보유 골드 관리 |
+| `OreManager.cs` | 보유 광석 관리|
+| `GameManager.cs` | 게임 오버 시 결과 화면 표시 요청 및 게임 시간 정지|
+
+### UI 및 사운드
+
+| 스크립트 | 역할 |
+|---|---|
+| `BuildUI.cs` | 타워 건설 선택 UI 열기 및 닫기 |
+| `TowerSelectButton.cs` | 버튼 입력을 통한 건설할 타워 선택 및 선택 상태 표시 |
+| `TowerInfoUI.cs | 선택한 타워의 정보 표시 및 강화/판매 버튼 처리 |
+| `MinerUpgradeUI.cs` | 광부 정보 표시 및 강화 버튼 처리|
+| `TowerSelectManager.cs` | 배치된 타워의 선택 상태와 선택 표시 관리 |
+| `ClickOutSide.cs` | 빈 공간 클릭 시 열린 UI 닫기 및 선택 해제 |
+| `UiManager.cs` | 골드/광석/웨이브 정보 표시 및 게임 오버 화면 열기 |
+| `GameMenuUI.cs` | ESC 메뉴와 일시정지/재개 처리, 게임 오버 중 메뉴 열기 제한|
+| `LoadScene.cs` | 게임 씬/타이틀 씬 전환 및 게임 종료 |
+| `AuidoManager.cs` | 배경음악/효과음 재생, AudioMixer를 통한 음량 조절 및 설정값 저장 |
+| `AudioSettingController.cs` | 음량 설정 창 열기/닫기 및 슬라이더 입력에 따른 음량 변경 요청 |
